@@ -2,6 +2,9 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import { useQuery } from "@apollo/client";
 import { GET_POST } from "../graphql/query";
+import GetPostModel from "@/models/GetPostModel";
+import Layout from "@/components/Layout";
+import Card from "@/components/Card";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,15 +20,22 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        {data?.getPost?.map((item) => {
-          return (
-            <div>
-              <p>{item.title}</p>
-            </div>
-          );
-        })}
-      </main>
+      <>
+        <Layout>
+          <div className="cardContainer">
+            {data?.getPost?.map((item: GetPostModel) => {
+              return (
+                <Card
+                  id={item.id}
+                  key={item.id}
+                  description={item.description}
+                  title={item.title}
+                />
+              );
+            })}
+          </div>
+        </Layout>
+      </>
     </>
   );
 }
