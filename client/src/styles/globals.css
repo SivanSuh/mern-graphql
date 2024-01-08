@@ -17,11 +17,34 @@
   font-size: 20px;
   text-transform: uppercase;
 }
-
+.input {
+  outline: none;
+  padding: 8px;
+   margin: 5px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  margin: 20px auto;
+}
+.button {
+  outline: none;
+  padding: 8px;
+  margin: 5px;
+  background-color: black;
+  color: yellow;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+}
 .card {
-  width:fit-content;
+  max-width: 300px;
+  width:100%;
   padding: 10px;
   background-color: skyblue;
+  margin: 5px;
 }
 .link {
   color: white;
@@ -32,5 +55,6 @@
 }
 
 .cardContainer {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
 }
