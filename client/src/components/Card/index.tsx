@@ -1,12 +1,13 @@
 import GetPostModel from "@/models/GetPostModel";
+import Link from "next/link";
 import React from "react";
 
 const Card: React.FC<GetPostModel> = ({ description, id, title }) => {
   return (
-    <div className="card">
+    <Link href={`/details/${id}`} className="card">
       <strong>{title}</strong>
       <p>{description}</p>
-    </div>
+    </Link>
   );
 };
 

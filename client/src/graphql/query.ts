@@ -4,7 +4,18 @@ export const GET_POST = gql`
   query ExampleQuery {
     getPost {
       description
-      title
+      title,
+      id
     }
   }
 `;
+
+export const DETAIL_POST = gql`
+  query GetPostDetail($postId: ID!) {
+    getPostDetail(postId: $postId) {
+      title,
+      id,
+      description
+    }
+  }
+`

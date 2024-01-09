@@ -34,6 +34,7 @@ export default function Home() {
   if (error) return `Error! ${error.message}`;
 
   console.log("data", data);
+  console.log("form", form);
   return (
     <>
       <Head>
@@ -46,7 +47,6 @@ export default function Home() {
         <Layout>
           <form
             onSubmit={(e: any) => {
-              e.preventDefault();
               createPost({ variables: { body: form } });
               setForm({
                 description: "",
