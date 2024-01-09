@@ -9,3 +9,11 @@ export const CREATE_PORT = gql`
     }
   }
 `;
+
+export const DELETE_POST = gql`
+  mutation DeletePost($deletePostId: ID!) {
+    deletePost(deletePostId: $deletePostId) {
+      id
+    }
+  }
+`;

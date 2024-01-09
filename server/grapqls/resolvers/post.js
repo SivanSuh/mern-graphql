@@ -28,5 +28,13 @@ module.exports = {
         console.log(error);
       }
     },
+    deletePost: async (_, { deletePostId }) => {
+      try {
+        const deletedPost = await postSchema.findByIdAndDelete(deletePostId);
+        return deletedPost;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };

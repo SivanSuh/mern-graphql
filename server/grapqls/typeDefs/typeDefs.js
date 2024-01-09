@@ -17,5 +17,6 @@ module.exports = `#graphql
 
     type Mutation {
         createPost(body:Input): Post
+        deletePost(deletePostId:ID!):Post
     }
 `;
