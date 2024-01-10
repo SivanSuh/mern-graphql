@@ -19,7 +19,9 @@ export default function Home() {
   });
 
   const { loading, data, error } = useQuery(GET_POST);
-  const [createPost] = useMutation(CREATE_PORT);
+  const [createPost] = useMutation(CREATE_PORT, {
+    refetchQueries: [GET_POST, "getPost"],
+  });
 
   useEffect(() => {}, [form, data]);
 
@@ -47,6 +49,7 @@ export default function Home() {
         <Layout>
           <form
             onSubmit={(e: any) => {
+              e.preventDefault();
               createPost({ variables: { body: form } });
               setForm({
                 description: "",

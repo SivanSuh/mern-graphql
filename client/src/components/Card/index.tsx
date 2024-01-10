@@ -1,4 +1,5 @@
 import { DELETE_POST } from "@/graphql/mutation";
+import { GET_POST } from "@/graphql/query";
 import GetPostModel from "@/models/GetPostModel";
 import { useMutation, useQuery } from "@apollo/client";
 import Link from "next/link";
@@ -6,7 +7,9 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const Card: React.FC<GetPostModel> = ({ description, id, title }) => {
-  const [deletePost] = useMutation(DELETE_POST);
+  const [deletePost] = useMutation(DELETE_POST, {
+    refetchQueries: [GET_POST, "getPost"],
+  });
 
   const router = useRouter();
   const onClick = (e: any) => {
